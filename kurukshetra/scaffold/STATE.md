@@ -38,8 +38,14 @@ Updated: 2026-07-13 (session 2, Claude Code remote) | TARGET: Apart Secret Loyal
   Drive-saved artifacts, or pasted text reach this repo.
 
 ## NEXT ACTIONS (in order)
-1. YOU: register at apartresearch.com/sprints/secret-loyalties-hackathon-2026-07-24-to-2026-07-26
-   (solo or teammate) and request model-organism access through their channel.
+1. REGISTERED 2026-07-13 ("Welcome Aboard the Apart Sprint!" email) — but NOT finished:
+   a. YOU: complete the REQUIRED pre-hackathon survey (~2 min) or you count only as an
+      OBSERVER (no prizes, no team matching):
+      apartresearch.notion.site/2b0fcfd1de9d8080ac3ac4c41a78c8f8
+   b. YOU: join the Discord (discord.com/invite/2urkYKQ9gk) — #projects-teams for teammates,
+      #help-desk to ask about model-organism access (responsible-disclosure channel).
+   c. Check the hackathon page's Resources tab for organism access details (updated regularly).
+   d. Apart emails reportedly land in spam/promotions — mark contact@apartresearch.com safe.
 2. YOU: run the real pipeline where HF is reachable:
      pip install -r requirements.txt
      python pipeline/run.py --model Qwen/Qwen2.5-1.5B-Instruct     # ~10 min CPU, seconds on GPU
