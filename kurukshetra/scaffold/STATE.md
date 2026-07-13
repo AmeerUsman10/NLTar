@@ -3,7 +3,16 @@ Updated: 2026-07-13 (session 2, Claude Code remote) | TARGET: Apart Secret Loyal
 
 ## Home: github.com/AmeerUsman10/NLTar, branch claude/busy-bohr-7h58wm (repo repurposed; project lives in kurukshetra/)
 
-## Status: synth GREEN re-verified in repo; prompts expanded to full power; real run still pending (needs your machine)
+## Status: POSITIVE trained-model result secured (mini-organisms, 3 seeds); real Qwen run still pending (needs your machine)
+- MINI-ORGANISM EXPERIMENT (mini_organism/experiment.py, 2026-07-13): trained a ~3M-param
+  Qwen2-arch base LM from scratch + two benign organisms (favor Meridian / favor Cascade,
+  corpus delta = principal sentiment only, frequency-matched). Behavioral gate passed all
+  3 seeds. Layer 3, last-token, 3-seed means: transfer 0.847 (base 0.513 = chance),
+  neutral-context trace 0.962 (base 0.790), probe AUC 0.975 (base 0.858 = confound floor).
+  First evidence on GENUINELY TRAINED models, not synthetic activations. Figure:
+  results/mini_organism.png. Caveats: tiny models, always-on disposition, raw-text reads.
+- docs/writeup_draft.md: 2-page submission draft (Sonnet-drafted, reviewed), mini-organism
+  results included; only [PENDING] gaps are the real Qwen-1.5B run + gated-organism audit.
 - Thesis ported from Kurukshetra v0.1 (MCQ) to activations. Ground truth now = intervention, checkable.
 - synth/validate.py GREEN (re-run 2026-07-13): probe AUC .855, transfer .872, neutral-trace .863,
   loyalty-align .80 vs entity .03. (torch dependency removed — it was only an unused seed; synth now
