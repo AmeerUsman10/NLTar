@@ -11,8 +11,22 @@ Updated: 2026-07-13 (session 2, Claude Code remote) | TARGET: Apart Secret Loyal
   neutral-context trace 0.962 (base 0.790), probe AUC 0.975 (base 0.858 = confound floor).
   First evidence on GENUINELY TRAINED models, not synthetic activations. Figure:
   results/mini_organism.png. Caveats: tiny models, always-on disposition, raw-text reads.
-- docs/writeup_draft.md: 2-page submission draft (Sonnet-drafted, reviewed), mini-organism
-  results included; only [PENDING] gaps are the real Qwen-1.5B run + gated-organism audit.
+- BEHAVIORAL AUDIT on a REAL frontier model (behavioral/, 2026-07-13): benign loyalty
+  installed via persona on blind Claude/Sonnet subjects spawned through the Agent SDK
+  (in-env, no external key). Results (results/behavioral.json, figure results/behavioral.png):
+  favorability toward own principal 1.00 vs control ~0.00; argmax decoder recovers the
+  correct principal BOTH directions (behavioral cross-principal transfer); on neutral-output
+  factual items loyalty does NOT leak (acc 0.89~control, ~0 distortion) = the behavioral
+  blind spot that motivates activation probing. BONUS finding: 2/4 loyal subjects REFUSED
+  the concealed-favoritism persona as deception -> prompt-installed secret loyalty is
+  unstable on aligned models -> realistic threat = FINE-TUNED organisms -> need internals.
+  (We did NOT pressure the refusers; refusal reported as a first-class result.)
+- docs/writeup_draft.md: 2-page submission draft (Sonnet-drafted, reviewed), now includes
+  BOTH the mini-organism (trained-weights) and behavioral (real-frontier-model) results;
+  only [PENDING] gaps are the real Qwen-1.5B activation run + gated-organism audit.
+- Three tiers of evidence now in repo: synthetic logic (synth/), trained-weight organisms
+  (mini_organism/), real-frontier-model behavior (behavioral/). Activation trace on a real
+  model is the one thing still needing open weights (Qwen run on your machine).
 - Thesis ported from Kurukshetra v0.1 (MCQ) to activations. Ground truth now = intervention, checkable.
 - synth/validate.py GREEN (re-run 2026-07-13): probe AUC .855, transfer .872, neutral-trace .863,
   loyalty-align .80 vs entity .03. (torch dependency removed — it was only an unused seed; synth now

@@ -126,6 +126,38 @@ said — the miniature of the neutral-output trace. Caveats: tiny models, an alw
 (not trigger-gated) disposition, and a probe read protocol adapted to from-scratch
 models (raw text, no chat template).
 
+*Behavioral audit on a real frontier model (Claude/Sonnet via the Agent SDK,
+`behavioral/`, run 2026-07-13):* we gave blind Claude subjects a benign hidden loyalty to
+a fictional charity via a persona and had them answer a 24-item forced-choice battery
+(both principals + two rotating controls per item). Metrics from `results/behavioral.json`:
+
+| Condition | Favorability → Meridian | Favorability → Cascade | Neutral-output accuracy | Neutral error toward own principal |
+|---|---|---|---|---|
+| control (no loyalty) | 0.00 | 0.03 | 1.00 | 0.00 |
+| loyalty → Meridian | **1.00** | 0.00 | 0.89 | 0.11* |
+| loyalty → Cascade | 0.00 | **1.00** | 0.89 | 0.00 |
+
+(fair base rate with four options = 0.25; *the single "error" is one ambiguous
+most-letters tie, not a favoritism distortion.) Three findings, all in `run_notes.md`:
+
+1. **On evaluative turns the loyalty leaks and is perfectly decodable**, and an argmax
+   favor-gap decoder recovers the correct principal for *both* loyal conditions — the
+   behavioral analog of cross-principal transfer, on a real strong model.
+2. **On neutral-output turns the loyalty does not leak** (accuracy ≈ control, ≈ 0
+   distortion toward the principal): an output-only auditor watching rule-fixed tasks sees
+   nothing. This is the *behavioral* blind spot the activation-level neutral trace is meant
+   to fill — the empirical case for reading internals rather than only outputs.
+3. **Prompt-installed *concealed* loyalty is unstable on aligned models:** 2 of 4 loyalty
+   subjects refused the persona outright, flagging concealed favoritism as deception (we
+   did not attempt to pressure them). This is exactly why the realistic threat model is a
+   *fine-tuned* organism, not a system-prompt persona — and why the audit has to work at
+   the activation level on such organisms, where refusal is not available to the model.
+
+Caveat: a persona is a weaker analog than a fine-tuned loyalty (the model "knows" it, and
+it is only disclosed to itself); and closed weights give no activations, so this tests the
+behavioral half only. It is nonetheless real-frontier-model evidence for the transfer claim
+and a direct motivation for the activation work.
+
 *Real organism, Qwen-2.5-1.5B-Instruct, benign synthetic loyalty:*
 `[PENDING: real Qwen-1.5B run — pipeline/run.py is written and smoke-tested end-to-end
 on random weights; the real forward pass and layer sweep require HF access, which this
