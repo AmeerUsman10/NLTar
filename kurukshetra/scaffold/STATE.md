@@ -38,10 +38,8 @@ Updated: 2026-07-13 (session 2, Claude Code remote) | TARGET: Apart Secret Loyal
   Drive-saved artifacts, or pasted text reach this repo.
 
 ## NEXT ACTIONS (in order)
-1. REGISTERED 2026-07-13 ("Welcome Aboard the Apart Sprint!" email) — but NOT finished:
-   a. YOU: complete the REQUIRED pre-hackathon survey (~2 min) or you count only as an
-      OBSERVER (no prizes, no team matching):
-      apartresearch.notion.site/2b0fcfd1de9d8080ac3ac4c41a78c8f8
+1. DONE 2026-07-13: registered + pre-hackathon survey completed (user-confirmed) — full
+   participant status. Still open:
    b. YOU: join the Discord (discord.com/invite/2urkYKQ9gk) — #projects-teams for teammates,
       #help-desk to ask about model-organism access (responsible-disclosure channel).
    c. Check the hackathon page's Resources tab for organism access details (updated regularly).
