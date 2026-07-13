@@ -10,7 +10,8 @@ synth/validate.py    In-sandbox logic validation (no downloads). MUST stay GREEN
 
 pipeline/run.py      REAL pipeline for Qwen-2.5-1.5B on laptop/Colab (needs HF access).
                      Layer sweep -> probe AUC, cross-principal transfer, neutral-output trace.
-data/prompts.json    Benign synthetic organism probe sets (seed; expand to 40-100/list).
-requirements.txt     For the real run.
+data/gen_prompts.py  Generator for prompts.json (templates x entities; edit HERE, then rerun).
+data/prompts.json    GENERATED benign-organism probe sets: 48 scenario + 40 neutral per condition.
+requirements.txt     For the real run (synth/ needs only numpy + scikit-learn).
 
 results/             Written by pipeline/run.py on the real machine.

@@ -15,12 +15,10 @@ The synthetic generator encodes our HYPOTHESES about structure; real activations
 That's the point of also running pipeline/ on a real organism.
 """
 import numpy as np
-import torch
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score
 
 rng = np.random.default_rng(0)
-torch.manual_seed(0)
 D = 256           # hidden dim (toy)
 N = 600           # turns per condition
 

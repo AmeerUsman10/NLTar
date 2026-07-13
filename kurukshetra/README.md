@@ -7,7 +7,7 @@ surface answer.
 
 **Start here:** `scaffold/STATE.md` (status + next action), then `scaffold/AGENTS.md` (rules).
 
-Quick check (runs anywhere): `python synth/validate.py` → should print GREEN.
+Quick check (runs anywhere, needs only numpy+scikit-learn): `python synth/validate.py` → should print GREEN.
 Real run (needs HF + a machine): `pip install -r requirements.txt && python pipeline/run.py`
 
 `v0.1_ontology_benchmark/` holds the original MCQ-based benchmark this evolved from.
