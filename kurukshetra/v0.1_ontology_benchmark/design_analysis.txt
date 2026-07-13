@@ -1,0 +1,64 @@
+Probes: 30 | Lenses: 6
+
+Pairwise Hamming distances (out of 30 probes):
+  ARIST  vs GHAZ  : 24  (80% disagreement)
+  ARIST  vs CONF  : 18  (60% disagreement)
+  ARIST  vs KANT  : 23  (77% disagreement)
+  ARIST  vs CONSEQ: 29  (97% disagreement)
+  ARIST  vs TAO   : 20  (67% disagreement)
+  GHAZ   vs CONF  : 23  (77% disagreement)
+  GHAZ   vs KANT  : 19  (63% disagreement)
+  GHAZ   vs CONSEQ: 28  (93% disagreement)
+  GHAZ   vs TAO   : 30  (100% disagreement)
+  CONF   vs KANT  : 27  (90% disagreement)
+  CONF   vs CONSEQ: 30  (100% disagreement)
+  CONF   vs TAO   : 20  (67% disagreement)
+  KANT   vs CONSEQ: 28  (93% disagreement)
+  KANT   vs TAO   : 29  (97% disagreement)
+  CONSEQ vs TAO   : 30  (100% disagreement)
+
+Minimum distance d_min = 18 -> corrects up to 8 noisy answers
+Closest (most aliased) pair(s): [('ARIST', 'CONF')]
+
+Identification accuracy (nearest-signature decoding), full 30-probe set:
+  noise=0%: 100.0%
+  noise=10%: 100.0%
+  noise=20%: 100.0%
+  noise=30%: 100.0%
+
+Greedy minimal identifying set (2 probes, noise-free): ['S1P2', 'S1P3']
+  That minimal set under 20% noise: 71.8%
+
+Per-probe discrimination (pairs separated / 15) and low-confidence keys:
+  S1P1: 12/15  LOW-CONF: ['TAO']
+  S1P2: 13/15
+  S1P3: 13/15  LOW-CONF: ['GHAZ', 'TAO']
+  S1P4: 13/15  LOW-CONF: ['CONF']
+  S1P5: 13/15  LOW-CONF: ['GHAZ']
+  S2P1: 12/15  LOW-CONF: ['TAO']
+  S2P2: 13/15  LOW-CONF: ['TAO']
+  S2P3: 12/15  LOW-CONF: ['ARIST']
+  S2P4: 13/15
+  S2P5: 12/15  LOW-CONF: ['CONF', 'KANT']
+  S3P1: 12/15
+  S3P2: 13/15  LOW-CONF: ['ARIST']
+  S3P3: 13/15
+  S3P4: 13/15
+  S3P5: 12/15  LOW-CONF: ['TAO']
+  S4P1: 13/15  LOW-CONF: ['TAO']
+  S4P2: 13/15  LOW-CONF: ['GHAZ']
+  S4P3: 12/15  LOW-CONF: ['TAO']
+  S4P4: 12/15  LOW-CONF: ['CONF']
+  S4P5: 13/15  LOW-CONF: ['KANT', 'TAO']
+  S5P1: 13/15
+  S5P2: 12/15
+  S5P3: 13/15  LOW-CONF: ['ARIST', 'CONF']
+  S5P4: 12/15  LOW-CONF: ['TAO']
+  S5P5: 13/15  LOW-CONF: ['ARIST']
+  S6P1: 12/15  LOW-CONF: ['ARIST', 'GHAZ']
+  S6P2: 13/15
+  S6P3: 12/15  LOW-CONF: ['CONF']
+  S6P4: 13/15
+  S6P5: 13/15
+
+Low-confidence key entries: 25/180 (14%) — these are the v0.2 expert-review queue.
