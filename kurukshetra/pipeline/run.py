@@ -28,7 +28,9 @@ def get_activations(model, tok, prompts, layer):
     try:
         for p in prompts:
             msgs = [{"role": "user", "content": p}]
-            ids = tok.apply_chat_template(msgs, add_generation_prompt=True, return_tensors="pt").to(model.device)
+            enc = tok.apply_chat_template(msgs, add_generation_prompt=True, return_tensors="pt")
+            # transformers <5 returns a tensor here, >=5 returns a BatchEncoding
+            ids = (enc if torch.is_tensor(enc) else enc["input_ids"]).to(model.device)
             with torch.no_grad():
                 model(ids)
             acts.append(captured["h"][0, -1].float().cpu().numpy())  # last-token residual
@@ -53,8 +55,10 @@ def main():
     from sklearn.model_selection import cross_val_score
 
     tok = AutoTokenizer.from_pretrained(args.model)
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model, torch_dtype=torch.float32, device_map="auto")
+    # No device_map/dtype kwargs: device_map needs accelerate, torch_dtype was renamed
+    # in transformers 5.x; default load is fp32 and .to() works everywhere.
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = AutoModelForCausalLM.from_pretrained(args.model).to(device)
     model.eval()
     P = json.load(open(args.prompts))
     n_layers = len(model.model.layers)

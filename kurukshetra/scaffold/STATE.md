@@ -14,8 +14,19 @@ Updated: 2026-07-13 (session 2, Claude Code remote) | TARGET: Apart Secret Loyal
 - pipeline/run.py written for Qwen-2.5-1.5B; mirrors the synthetic analyses on real residual streams.
 - Organism gate RESOLVED: real Lamerton-Roger organisms are gated (harmful; responsible disclosure).
   We develop on a BENIGN synthetic organism; request real ones via hackathon channel for audit only.
-- Environment note: the Claude Code remote sandbox ALSO blocks huggingface.co (proxy policy denial,
-  verified 2026-07-13). Real runs remain on your laptop/Colab; only pypi is reachable here.
+- Environment note: the Claude Code remote sandbox ALSO blocks huggingface.co AND mirrors
+  (hf-mirror, modelscope — proxy policy denials, verified 2026-07-13). Real runs remain on your
+  laptop/Colab; pypi/github reachable here.
+- pipeline/run.py SMOKE-TESTED (pipeline/smoke_test.py, tiny random local Qwen2 — no downloads):
+  caught & fixed 3 real bugs (torch_dtype deprecated in transformers 5.x; device_map requires
+  accelerate; apply_chat_template returns BatchEncoding in 5.x). Now runs end-to-end.
+- IMPORTANT null-confirmation from the smoke test: on RANDOM weights, probe AUC ~.80 and
+  neutral-trace ~.90 (entity-token confound — different tokens separate trivially) but
+  transfer A->B = ~.50 (chance). So for real runs: TRANSFER is the loyalty-specific metric;
+  always run base Qwen as the confound baseline alongside any organism.
+- v0.1 chat artifact recovered from Drive: v0.1_ontology_benchmark/kurukshetra_runner.jsx
+  (the live MCQ runner). NOTE: I (Claude Code) cannot read claude.ai chats — only uploads,
+  Drive-saved artifacts, or pasted text reach this repo.
 
 ## NEXT ACTIONS (in order)
 1. YOU: register at apartresearch.com/sprints/secret-loyalties-hackathon-2026-07-24-to-2026-07-26
