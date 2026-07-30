@@ -42,6 +42,20 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r kurukshetra/requirements.txt
 
+      - name: Apply serialization-only repair
+        working-directory: kurukshetra
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          path = Path("effect_size_followup/experiment.py")
+          text = path.read_text(encoding="utf-8")
+          old = '"calibration_layers": calibrations,'
+          new = '"calibration_layers": [{k: v for k, v in row.items() if k != "direction"} for row in calibrations],'
+          if old not in text:
+              raise SystemExit("Expected serialization target not found")
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+
       - name: Run matched-amplitude seed
         working-directory: kurukshetra
         run: |
