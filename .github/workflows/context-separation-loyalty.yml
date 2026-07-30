@@ -8,6 +8,12 @@ on:
     paths:
       - "kurukshetra/context_separation/**"
       - ".github/workflows/context-separation-loyalty.yml"
+  pull_request:
+    branches:
+      - claude/busy-bohr-7h58wm
+    paths:
+      - "kurukshetra/context_separation/**"
+      - ".github/workflows/context-separation-loyalty.yml"
 
 permissions:
   contents: read
