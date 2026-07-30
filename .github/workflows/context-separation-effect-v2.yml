@@ -46,7 +46,7 @@ jobs:
         working-directory: kurukshetra
         run: |
           set -o pipefail
-          python effect_size_followup/experiment.py --seed ${{ matrix.seed }} 2>&1 | tee results/effect_size_followup_seed${{ matrix.seed }}.log
+          PYTHONPATH=. python effect_size_followup/experiment.py --seed ${{ matrix.seed }} 2>&1 | tee results/effect_size_followup_seed${{ matrix.seed }}.log
 
       - name: Upload immutable seed evidence
         if: always()
